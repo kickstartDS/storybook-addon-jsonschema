@@ -1,5 +1,5 @@
 {
-  "name": "storybook-addon-kit",
+  "name": "@kickstartds/storybook-addon-jsonschema",
   "version": "0.0.0",
   "description": "everything you need to build a Storybook addon",
   "keywords": [
@@ -88,5 +88,16 @@
       "angular"
     ],
     "icon": "https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png"
+  },
+  "dependencies": {
+    "@kickstartds/json-schema-viewer": "^1.0.5",
+    "@types/js-yaml": "^4.0.3",
+    "@types/json-schema": "^7.0.9",
+    "@types/react-copy-to-clipboard": "^5.0.1",
+    "@types/react-dom": "^17.0.9",
+    "@types/react-router-dom": "^5.3.1",
+    "react-router": "^5.2.1",
+    "react-router-dom": "^5.3.0",
+    "styled-components": "^5.3.1"
   }
 }
