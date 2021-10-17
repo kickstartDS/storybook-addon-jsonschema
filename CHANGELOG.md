@@ -1,3 +1,15 @@
+# v0.1.4 (Sun Oct 17 2021)
+
+#### ⚠️ Pushed to `main`
+
+- fix: update README.md ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v0.1.3 (Sun Oct 17 2021)
 
 #### ⚠️ Pushed to `main`
