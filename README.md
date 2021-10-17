@@ -2,14 +2,14 @@
 
 # Storybook JSON Schema Addon
 
-Displays associated JSON Schema documentation using a rich schema explorer interface, and adds a validating JSON Code Editor with semantic auto-complete to interact with your components, and copy configurations with ease.
+Displays associated JSON Schema documentation using a rich `JSON Schema Explorer` interface, and adds a validating JSON Code Editor with semantic auto-complete to interact with your components, and copy configurations with ease.
 
-JSON Schema documentation is based on the excellent [Atlassian JSON Schema Viewer](https://github.com/atlassian-labs/json-schema-viewer).
+`JSON Schema Explorer` is based on the excellent [Atlassian JSON Schema Viewer](https://github.com/atlassian-labs/json-schema-viewer).
 It was slightly modified to generate bundles that can be imported for partial use, like this addon does.
 
-JSON Code Editor is based on [@monaco-editor/react](https://github.com/suren-atoyan/monaco-react). The editor is connected to your story state / args, so changing props through `Controls` is reflected in the code shown. Vice-versa if you edit the JSON, and the result is valid according to the schema, your changed args are applied to the story, too.
+`JSON Code Editor` is based on [@monaco-editor/react](https://github.com/suren-atoyan/monaco-react). The editor is connected to your story state / args, so changing props through `Controls` is reflected in the code shown. Vice-versa if you edit the JSON, and the result is valid according to the schema, your changed args are applied to the story, too.
 
-**[Show me the demo](https://www.kickstartds.com)**
+**[Show me a working demo](https://www.kickstartds.com)**
 
 ![Teaser image](docs/teaser.png)
 
@@ -24,9 +24,9 @@ JSON Code Editor is based on [@monaco-editor/react](https://github.com/suren-ato
 ## What it's for
 
 Three things you can use this addon for:  
-1. Explore associated JSON Schema documentation, in a nicely organized fashion
-2. Configure components through Controls, copy the resulting JSON as a starting point or template for API-usage / data generation purposes
-3. Paste JSON to validate data or preview component state
+1. Explore associated JSON Schema documentation, in a nicely organized fashion in the `JSON Schema Explorer`
+2. Configure components through Controls, copy the resulting JSON as a starting point or template for API-usage / data generation purposes in the `JSON Code Editor`
+3. Paste JSON to validate data or preview component state in the `JSON Code Editor`
 
 ## Getting started
 
