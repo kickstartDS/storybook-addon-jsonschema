@@ -1,114 +1,66 @@
-# Storybook Addon Kit
+⚠️ **This is still in beta state, schema is currently hard-wired... will be passed down from story parameters.** ⚠️
 
-Simplify the creation of Storybook addons
+# Storybook JSON Schema Addon
 
-- 📝 Live-editing in development
-- ⚛️ React/JSX support
-- 📦 Transpiling and bundling with Babel
-- 🏷 Plugin metadata
-- 🚢 Release management with [Auto](https://github.com/intuit/auto)
-- 🧺 Boilerplate and sample code
-- 🛄 ESM support
-- 🛂 TypeScript by default with option to eject to JS
+Displays associated JSON Schema documentation using a rich schema explorer interface, and adds a validating JSON Code Editor with semantic auto-complete to interact with your components, and copy configurations with ease.
 
-## Getting Started
+JSON Schema documentation is based on the excellent [Atlassian JSON Schema Viewer](https://github.com/atlassian-labs/json-schema-viewer).
+It was slightly modified to generate bundles that can be imported for partial use, like this addon does.
 
-Click the **Use this template** button to get started.
+JSON Code Editor is based on [@monaco-editor/react](https://github.com/suren-atoyan/monaco-react). The editor is connected to your story state / args, so changing props through `Controls` is reflected in the code shown. Vice-versa if you edit the JSON, and the result is valid according to the schema, your changed args are applied to the story, too.
 
-![](https://user-images.githubusercontent.com/321738/125058439-8d9ef880-e0aa-11eb-9211-e6d7be812959.gif)
+**[Show me the demo](https://storybook-design-token-v1.netlify.app/?path=/story/components-button--button)**
 
-Clone your repository and install dependencies.
+![Teaser image](docs/teaser.png)
 
-```sh
-yarn
-```
+**Table of contents:**
 
-### Development scripts
+- [Storybook JSON Schema Addon](#storybook-json-schema-addon)
+  - [What it's for](#what-its-for)
+  - [Getting started](#getting-started)
+  - [Advanced configuration](#advanced-configuration)
+  - [Authors](#authors)
 
-- `yarn start` runs babel in watch mode and starts Storybook
-- `yarn build` build and package your addon code
+## What it's for
 
-### Switch from TypeScript to JavaScript
+Three things you can use this addon for:  
+1. Explore associated JSON Schema documentation, in a nicely organized fashion
+2. Configure components through Controls, copy the resulting JSON as a starting point or template for API-usage / data generation purposes
+3. Paste JSON to validate data or preview component state
 
-Don't want to use TypeScript? We offer a handy eject command: `yarn eject-ts`
+## Getting started
 
-This will convert all code to JS. It is a destructive process, so we recommended running this before you start writing any code.
+Prerequesite: Your components need to have JSON Schema files associated with them. Additionally schemas need to be dereferenced already, as $ref-resolution is not (a tested) part of this addon (yet? ... let us know in the issues if you need this).
 
-## What's included?
-
-![Demo](https://user-images.githubusercontent.com/42671/107857205-e7044380-6dfa-11eb-8718-ad02e3ba1a3f.gif)
-
-The addon code lives in `src`. It demonstrates all core addon related concepts. The three [UI paradigms](https://storybook.js.org/docs/react/addons/addon-types#ui-based-addons)
-
-- `src/Tool.js`
-- `src/Panel.js`
-- `src/Tab.js`
-
-Which, along with the addon itself, are registered in `src/preset/manager.js`.
-
-Managing State and interacting with a story:
-
-- `src/withGlobals.js` & `src/Tool.js` demonstrates how to use `useGlobals` to manage global state and modify the contents of a Story.
-- `src/withRoundTrip.js` & `src/Panel.js` demonstrates two-way communication using channels.
-- `src/Tab.js` demonstrates how to use `useParameter` to access the current story's parameters.
-
-Your addon might use one or more of these patterns. Feel free to delete unused code. Update `src/preset/manager.js` and `src/preset/preview.js` accordingly.
-
-Lastly, configure you addon name in `src/constants.js`.
-
-### Metadata
-
-Storybook addons are listed in the [catalog](https://storybook.js.org/addons) and distributed via npm. The catalog is populated by querying npm's registry for Storybook-specific metadata in `package.json`. This project has been configured with sample data. Learn more about available options in the [Addon metadata docs](https://storybook.js.org/docs/react/addons/addon-catalog#addon-metadata).
-
-## Release Management
-
-### Setup
-
-This project is configured to use [auto](https://github.com/intuit/auto) for release management. It generates a changelog and pushes it to both GitHub and npm. Therefore, you need to configure access to both:
-
-- [`NPM_TOKEN`](https://docs.npmjs.com/creating-and-viewing-access-tokens#creating-access-tokens) Create a token with both _Read and Publish_ permissions.
-- [`GH_TOKEN`](https://github.com/settings/tokens) Create a token with the `repo` scope.
-
-Then open your `package.json` and edit the following fields:
-
-- `name`
-- `author`
-- `repository`
-
-#### Local
-
-To use `auto` locally create a `.env` file at the root of your project and add your tokens to it:
-
-```bash
-GH_TOKEN=<value you just got from GitHub>
-NPM_TOKEN=<value you just got from npm>
-```
-
-Lastly, **create labels on GitHub**. You’ll use these labels in the future when making changes to the package.
-
-```bash
-npx auto create-labels
-```
-
-If you check on GitHub, you’ll now see a set of labels that `auto` would like you to use. Use these to tag future pull requests.
-
-#### GitHub Actions
-
-This template comes with GitHub actions already set up to publish your addon anytime someone pushes to your repository.
-
-Go to `Settings > Secrets`, click `New repository secret`, and add your `NPM_TOKEN`.
-
-### Creating a release
-
-To create a release locally you can run the following command, otherwise the GitHub action will make the release for you.
+First step is to install the addon:
 
 ```sh
-yarn release
+$ yarn add --dev @kickstartds/storybook-addon-jsonschema
 ```
 
-That will:
+Second step, register the addon inside your `.storybook/main.js` (just add it to the list):
 
-- Build and package the addon code
-- Bump the version
-- Push a release to GitHub and npm
-- Push a changelog to GitHub
+```javascript
+module.exports = {
+  addons: ['@kickstartds/storybook-addon-jsonschema']
+};
+```
+
+Third step, just add this small snippet to your `.storybook/preview.js`:  
+t.b.d - coming soon
+
+## Advanced configuration
+
+This addon is still early, advanced configuration options will be added at a later date. Feel free to let us know in the issues if something specific is unclear, or doesn't work!
+
+## Authors
+
+This addon was made with 🍋 by the team behind [kickstartDS - the frontend first framework](https://www.kickstartds.com/)!
+
+> kickstartDS is a comprehensive component and pattern library
+
+> We enable web development teams to create consistent and brand compliant web frontends super efficiently. With a built-in Design System to serve all your digital touch points. Easy like squeeeeezing a lemon.
+
+We use the addon to let users of our Design System solution interact with their components through our core JSON Schema property-layer. View our [landing page](https://www.kickstartds.com/) to learn more! 👋
+
+![Teaser image](https://www.kickstartds.com/logo.svg)
