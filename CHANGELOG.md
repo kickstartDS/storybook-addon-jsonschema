@@ -1,3 +1,15 @@
+# v0.1.2 (Sun Oct 17 2021)
+
+#### ⚠️ Pushed to `main`
+
+- chore: fix demo link ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v0.1.1 (Sun Oct 17 2021)
 
 #### ⚠️ Pushed to `main`
