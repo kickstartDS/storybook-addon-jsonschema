@@ -1,30 +1,31 @@
 import React from "react";
 import { useLocation } from 'react-router-dom';
-
+import { useArgs } from "@storybook/api";
 import styled from "styled-components";
+import decomment from "decomment";
+
 import {
-  SchemaEditor,
   SchemaExplorer,
   SchemaExplorerProps,
   Lookup,
   InternalLookup,
   PathElement,
-  generateJsonExampleFor,
   getSchemaFromReference,
-  Example,
   forSize,
   JsonSchema,
 } from "@kickstartds/json-schema-viewer";
+import { pack, unpack } from "@kickstartds/core/lib/storybook/helpers";
 
-import { Schema as VisualSchema } from './visual.schema.dereffed.json';
+import { Schema as VisualSchema } from '../static/visual.schema.dereffed.json';
+import { SchemaEditor } from './SchemaEditor';
 
 const SchemaContainer = styled.div`
   display: flex;
 `;
 
 const SchemaEditorContainer = styled.div`
-  min-width: 500px;
-  max-width: 500px;
+  min-width: 580px;
+  max-width: 580px;
 
   display: none;
   position: relative;
@@ -112,22 +113,27 @@ export const SchemaView: React.FC = () => {
     return <div>TODO: Implement anything or nothing schema once clicked on.</div>
   }
 
-  const args: SchemaExplorerProps = {
+  const explorerArgs: SchemaExplorerProps = {
     basePathSegments: ['base'],
     path,
     lookup,
     schema: currentSchema,
     stage: 'both'
   }
-  const { value: fullExample } = generateJsonExampleFor(schema, lookup, 'both') as Example;
+  const [storybookArgs, updateArgs, resetArgs] = useArgs();
+
+  const handleValidChange: Function = (argsString: 'string') => {
+    updateArgs(pack(JSON.parse(decomment(argsString))));
+  };
 
   return (
     <SchemaContainer>
-      <SchemaExplorer {...args} />
+      <SchemaExplorer {...explorerArgs} />
       <SchemaEditorContainer>
         <SchemaEditor
-          initialContent={fullExample}
+          initialContent={unpack(storybookArgs as Record<'string', any>)}
           schema={schema}
+          handleValidChange={handleValidChange}
         />
         <SchemaEditorContainerHeading>Editor and Validator</SchemaEditorContainerHeading>
       </SchemaEditorContainer>

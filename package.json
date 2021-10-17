@@ -1,18 +1,19 @@
 {
   "name": "@kickstartds/storybook-addon-jsonschema",
-  "version": "0.0.0",
-  "description": "everything you need to build a Storybook addon",
+  "version": "0.1.0",
+  "description": "Show JSON Schema files associated with components, integrated with Story Controls",
   "keywords": [
     "storybook-addons",
-    "style",
-    "test"
+    "data-state",
+    "JSON",
+    "JSON Schema",
+    "Controls"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/storybookjs/storybook-addon-kit"
+    "url": "https://github.com/kickstartDS/storybook-addon-jsonschema"
   },
-  "author": "winkerVSbecks",
-  "license": "MIT",
+  "author": "Jonas Ulrich | ruhmesmeile GmbH",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/ts/index.d.ts",
@@ -45,6 +46,9 @@
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
     "@babel/preset-typescript": "^7.13.0",
+    "@kickstartds/base": "^1.4.0",
+    "@kickstartds/content": "^1.4.0",
+    "@kickstartds/core": "^1.4.0",
     "@storybook/addon-essentials": "^6.3.6",
     "@storybook/react": "^6.3.6",
     "@types/styled-components": "^5.1.15",
@@ -82,21 +86,24 @@
     "access": "public"
   },
   "storybook": {
-    "displayName": "Addon Kit",
+    "displayName": "JSON Schema",
     "supportedFrameworks": [
       "react",
       "vue",
       "angular"
     ],
-    "icon": "https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png"
+    "icon": "https://opencollective-production.s3.us-west-1.amazonaws.com/1e445ca0-fca9-11e9-a830-c36c137aded5.png"
   },
   "dependencies": {
     "@kickstartds/json-schema-viewer": "^1.0.12",
+    "@monaco-editor/react": "^4.3.1",
+    "@types/decomment": "^0.9.2",
     "@types/js-yaml": "^4.0.3",
     "@types/json-schema": "^7.0.9",
     "@types/react-copy-to-clipboard": "^5.0.1",
     "@types/react-dom": "^17.0.9",
     "@types/react-router-dom": "^5.3.1",
+    "decomment": "^0.9.4",
     "react-router": "^5.2.1",
     "react-router-dom": "^5.3.0",
     "styled-components": "^5.3.1"
