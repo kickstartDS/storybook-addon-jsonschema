@@ -1,3 +1,15 @@
+# v0.1.6 (Mon Oct 18 2021)
+
+#### ⚠️ Pushed to `main`
+
+- fix: abort mission, still need config ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v0.1.5 (Mon Oct 18 2021)
 
 #### ⚠️ Pushed to `main`
