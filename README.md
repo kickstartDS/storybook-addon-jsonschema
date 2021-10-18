@@ -24,9 +24,9 @@ It was slightly modified to generate bundles that can be imported for partial us
 ## What it's for
 
 Three things you can use this addon for:  
-1. Explore associated JSON Schema documentation, in a nicely organized fashion in the `JSON Schema Explorer`
-2. Configure components through Controls, copy the resulting JSON as a starting point or template for API-usage / data generation purposes in the `JSON Code Editor`
-3. Paste JSON to validate data or preview component state in the `JSON Code Editor`
+1. Explore associated JSON Schema documentation, in a nicely organized fashion in the `JSON Schema Explorer`  
+2. Configure components through Controls, copy the resulting JSON as a starting point or template for API-usage / data generation purposes in the `JSON Code Editor`  
+3. Paste JSON to validate data or preview component state in the `JSON Code Editor`  
 
 ## Getting started
 
@@ -63,4 +63,4 @@ This addon was made with 🍋 by the team behind [kickstartDS - the frontend fir
 
 We use the addon to let users of our Design System solution interact with their components through our core JSON Schema property-layer. View our [landing page](https://www.kickstartds.com/) to learn more! 👋
 
-![Teaser image](https://www.kickstartds.com/logo.svg)
+![cTeaser image](https://www.kickstartds.com/logo.svg)
