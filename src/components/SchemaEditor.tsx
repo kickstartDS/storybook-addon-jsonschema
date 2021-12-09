@@ -1,12 +1,13 @@
 import React, { useEffect, useRef } from "react";
-import Editor, { useMonaco, OnMount, OnValidate } from "@monaco-editor/react";
-
+import Editor, { useMonaco, OnMount, OnValidate, OnChange } from "@monaco-editor/react";
 import { JsonSchema } from "@kickstartds/json-schema-viewer";
+
+type OnChangeParams = Parameters<OnChange>;
 
 type SchemaEditorProps = {
   initialContent: unknown;
   schema: JsonSchema;
-  handleValidChange: Function;
+  handleValidChange: (value: OnChangeParams[0]) => void;
 }
 
 const editorPreamble = `
@@ -20,11 +21,11 @@ export const SchemaEditor: React.FC<SchemaEditorProps> = (props) => {
   const monaco = useMonaco();
 
   const handleEditorDidMount: OnMount = (editor, monaco) => {
-    editorRef.current = editor; 
+    editorRef.current = editor;
   };
 
   const handleEditorValidChange: OnValidate = (markers) => {
-    if (markers && markers.length === 0 && editorRef && editorRef.current) {
+    if (markers.length === 0 && editorRef && editorRef.current) {
       props.handleValidChange(editorRef.current.getValue());
     }
   };
@@ -45,12 +46,15 @@ export const SchemaEditor: React.FC<SchemaEditorProps> = (props) => {
     <Editor
       height="97vh"
       defaultLanguage="json"
-      value={editorPreamble + '\n' + JSON.stringify(props.initialContent, null, 2)}
+      value={
+        editorPreamble + "\n" + JSON.stringify(props.initialContent, null, 2)
+      }
       path="a://b/example.json"
       theme="vs-dark"
       onValidate={handleEditorValidChange}
       saveViewState={false}
       onMount={handleEditorDidMount}
+      onChange={props.handleValidChange}
     />
   );
 };

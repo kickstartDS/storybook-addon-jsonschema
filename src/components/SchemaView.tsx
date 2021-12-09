@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useLocation } from 'react-router-dom';
 import { useArgs, useParameter } from "@storybook/api";
 import styled from "styled-components";
 import decomment from "decomment";
+import { debounce } from "throttle-debounce";
 
 import {
   SchemaExplorer,
@@ -122,9 +123,14 @@ export const SchemaView: React.FC = () => {
   }
   const [storybookArgs, updateArgs, resetArgs] = useArgs();
 
-  const handleValidChange: Function = (argsString: 'string') => {
-    updateArgs(pack(JSON.parse(decomment(argsString))));
-  };
+  const handleValidChange = useCallback(
+    debounce(200, (argsString: string) => {
+      try {
+        updateArgs(pack(JSON.parse(decomment(argsString))));
+      } catch (e) {}
+    }),
+    [updateArgs]
+  );
 
   return (
     <SchemaContainer>
