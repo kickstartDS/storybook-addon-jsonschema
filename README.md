@@ -1,5 +1,3 @@
-⚠️ **This is still in beta state, schema is currently hard-wired... will be passed down from story parameters.** ⚠️
-
 # Storybook JSON Schema Addon
 
 Displays associated JSON Schema documentation using a rich `JSON Schema Explorer` interface, and adds a validating JSON Code Editor with semantic auto-complete to interact with your components, and copy configurations with ease.
