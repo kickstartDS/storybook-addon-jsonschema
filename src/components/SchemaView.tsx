@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useLocation } from 'react-router-dom';
-import { useArgs } from "@storybook/api";
+import { useArgs, useParameter } from "@storybook/api";
 import styled from "styled-components";
 import decomment from "decomment";
+import { debounce } from "throttle-debounce";
 
 import {
   SchemaExplorer,
@@ -16,7 +17,7 @@ import {
 } from "@kickstartds/json-schema-viewer";
 import { pack, unpack } from "@kickstartds/core/lib/storybook/helpers";
 
-import { Schema as VisualSchema } from '../static/visual.schema.dereffed.json';
+import { PARAM_KEY } from '../constants';
 import { SchemaEditor } from './SchemaEditor';
 
 const SchemaContainer = styled.div`
@@ -66,7 +67,7 @@ const removeLeadingSlash = (v: string): string => {
 };
 
 export const SchemaView: React.FC = () => {
-  const schema = VisualSchema;
+  const schema = useParameter<JsonSchema>(PARAM_KEY, {});
   const lookup = new InternalLookup(schema);
 
   const getPathFromRoute = (lookup: Lookup): Array<PathElement> => {
@@ -77,7 +78,7 @@ export const SchemaView: React.FC = () => {
     while (pathSegments[iterator] !== undefined && basePathSegments[iterator] !== undefined && basePathSegments[iterator] === pathSegments[iterator]) {
       iterator++;
     }
-  
+
     if (iterator === pathSegments.length) {
       const reference = '#';
       const title = getTitle(getSchemaFromReference(reference, lookup));
@@ -86,7 +87,7 @@ export const SchemaView: React.FC = () => {
         reference
       }];
     }
-  
+
     return pathSegments.slice(iterator).map(decodeURIComponent).map(userProvidedReference => {
       const reference = userProvidedReference.startsWith('#') ? userProvidedReference : '#/invalid-reference';
       const title = getTitle(getSchemaFromReference(reference, lookup));
@@ -122,9 +123,14 @@ export const SchemaView: React.FC = () => {
   }
   const [storybookArgs, updateArgs, resetArgs] = useArgs();
 
-  const handleValidChange: Function = (argsString: 'string') => {
-    updateArgs(pack(JSON.parse(decomment(argsString))));
-  };
+  const handleValidChange = useCallback(
+    debounce(200, (argsString: string) => {
+      try {
+        updateArgs(pack(JSON.parse(decomment(argsString))));
+      } catch (e) {}
+    }),
+    [updateArgs]
+  );
 
   return (
     <SchemaContainer>

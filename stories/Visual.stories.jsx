@@ -2,8 +2,15 @@ import { pack } from "@kickstartds/core/lib/storybook/helpers";
 import visualStories, {
   Template,
 } from "@kickstartds/content/lib/visual/visual.stories";
+import schema from "@kickstartds/content/lib/visual/visual.schema.dereffed.json";
 
-export default visualStories;
+export default {
+  ...visualStories,
+  parameters: {
+    ...visualStories.parameters,
+    jsonschema: schema,
+  },
+};
 
 export const BoxHell = Template.bind({});
 BoxHell.args = pack({

@@ -1,5 +1,3 @@
-⚠️ **This is still in beta state, schema is currently hard-wired... will be passed down from story parameters.** ⚠️
-
 # Storybook JSON Schema Addon
 
 Displays associated JSON Schema documentation using a rich `JSON Schema Explorer` interface, and adds a validating JSON Code Editor with semantic auto-complete to interact with your components, and copy configurations with ease.
@@ -46,8 +44,30 @@ module.exports = {
 };
 ```
 
-Third step, just add this small snippet to your `.storybook/preview.js`:  
-t.b.d - coming soon
+Third step, export the schema as [component- or story parameter](https://storybook.js.org/docs/react/writing-stories/parameters):
+
+```javascript
+export default {
+  title: "Button",
+  component: Button,
+  parameters: {
+    jsonschema: {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$id": "https://my-components/button.schema.json",
+      "type": "object",
+      "properties": {
+        "primary": {
+          "type": "boolean",
+          "default": false,
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    }
+  }
+};
+```
 
 ## Advanced configuration
 
