@@ -46,8 +46,30 @@ module.exports = {
 };
 ```
 
-Third step, just add this small snippet to your `.storybook/preview.js`:  
-t.b.d - coming soon
+Third step, export the schema as [component- or story parameter](https://storybook.js.org/docs/react/writing-stories/parameters):
+
+```javascript
+export default {
+  title: "Button",
+  component: Button,
+  parameters: {
+    jsonschema: {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$id": "https://my-components/button.schema.json",
+      "type": "object",
+      "properties": {
+        "primary": {
+          "type": "boolean",
+          "default": false,
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    }
+  }
+};
+```
 
 ## Advanced configuration
 
