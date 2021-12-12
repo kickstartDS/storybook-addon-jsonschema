@@ -2081,10 +2081,10 @@
     sass "^1.43.4"
     vhtml "^2.2.0"
 
-"@kickstartds/json-schema-viewer@^1.0.12":
-  version "1.0.12"
-  resolved "https://registry.npmjs.org/@kickstartds/json-schema-viewer/-/json-schema-viewer-1.0.12.tgz#6e85d5afba898e4d731a0fd9a1de00f976305a39"
-  integrity sha512-/PTfIhBXw5baAHd0N5ufvd+FvY2TBa5aWuI06R30vud2gUOhONDU5+4bYLA7zf4VidxxHigo8+7qEts3pvHoJg==
+"@kickstartds/json-schema-viewer@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/@kickstartds/json-schema-viewer/-/json-schema-viewer-1.1.0.tgz#905ff8132a0da1cfd388edc32f7e8d67cd08408e"
+  integrity sha512-OQ2fYdJGO4lUgEU/spCtiDrMJumGa3hXB/HyoIEmJ8ZKPGoPCrsYfJk6/aS1EzWH3nPZMY0BO869Oo7g/2yrDQ==
   dependencies:
     "@atlaskit/atlassian-navigation" "^0.12.5"
     "@atlaskit/breadcrumbs" "^10.1.0"
@@ -3403,11 +3403,6 @@
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.7.tgz#545158342f949e8fd3bfd813224971ecddc3fac4"
   integrity sha512-0VBprVqfgFD7Ehb2vd8Lh9TG3jP98gvr8rgehQqzztZNI7o8zS8Ad4jyZneKELphpuE212D8J70LnSNQSyO6bQ==
-
-"@types/throttle-debounce@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@types/throttle-debounce/-/throttle-debounce-2.1.0.tgz#1c3df624bfc4b62f992d3012b84c56d41eab3776"
-  integrity sha512-5eQEtSCoESnh2FsiLTxE121IiE60hnMqcb435fShf4bpLRjEu1Eoekht23y6zXS9Ts3l+Szu3TARnTsA0GkOkQ==
 
 "@types/uglify-js@*":
   version "3.13.0"
