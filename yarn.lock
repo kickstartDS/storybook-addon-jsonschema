@@ -2081,10 +2081,10 @@
     sass "^1.43.4"
     vhtml "^2.2.0"
 
-"@kickstartds/json-schema-viewer@^1.0.12":
-  version "1.0.12"
-  resolved "https://registry.npmjs.org/@kickstartds/json-schema-viewer/-/json-schema-viewer-1.0.12.tgz#6e85d5afba898e4d731a0fd9a1de00f976305a39"
-  integrity sha512-/PTfIhBXw5baAHd0N5ufvd+FvY2TBa5aWuI06R30vud2gUOhONDU5+4bYLA7zf4VidxxHigo8+7qEts3pvHoJg==
+"@kickstartds/json-schema-viewer@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/@kickstartds/json-schema-viewer/-/json-schema-viewer-1.1.0.tgz#905ff8132a0da1cfd388edc32f7e8d67cd08408e"
+  integrity sha512-OQ2fYdJGO4lUgEU/spCtiDrMJumGa3hXB/HyoIEmJ8ZKPGoPCrsYfJk6/aS1EzWH3nPZMY0BO869Oo7g/2yrDQ==
   dependencies:
     "@atlaskit/atlassian-navigation" "^0.12.5"
     "@atlaskit/breadcrumbs" "^10.1.0"
