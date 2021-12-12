@@ -1,5 +1,17 @@
 # v1.0.1 (Sun Dec 12 2021)
 
+#### ⚠️ Pushed to `main`
+
+- chore: manual release ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.0.1 (Sun Dec 12 2021)
+
 
 
 ---
