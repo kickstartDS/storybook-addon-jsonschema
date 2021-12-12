@@ -1,3 +1,20 @@
+# v1.0.0 (Sun Dec 12 2021)
+
+#### 💥 Breaking Change
+
+- prevent unnecessary editor updates [#14](https://github.com/kickstartDS/storybook-addon-jsonschema/pull/14) ([@lmestel](https://github.com/lmestel) [@julrich](https://github.com/julrich))
+
+#### 🚀 Enhancement
+
+- read schema from parameter [#13](https://github.com/kickstartDS/storybook-addon-jsonschema/pull/13) ([@lmestel](https://github.com/lmestel))
+
+#### Authors: 2
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+- Lukas Mestel ([@lmestel](https://github.com/lmestel))
+
+---
+
 # v0.1.6 (Mon Oct 18 2021)
 
 #### ⚠️ Pushed to `main`
