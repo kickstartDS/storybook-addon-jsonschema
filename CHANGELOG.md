@@ -1,3 +1,15 @@
+# v1.0.3 (Sun Dec 12 2021)
+
+#### ⚠️ Pushed to `main`
+
+- chore: update teaser image and demo link ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.0.1 (Sun Dec 12 2021)
 
 #### ⚠️ Pushed to `main`
