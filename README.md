@@ -7,7 +7,7 @@ It was slightly modified to generate bundles that can be imported for partial us
 
 `JSON Code Editor` is based on [@monaco-editor/react](https://github.com/suren-atoyan/monaco-react). The editor is connected to your story state / args, so changing props through `Controls` is reflected in the code shown. Vice-versa if you edit the JSON, and the result is valid according to the schema, your changed args are applied to the story, too.
 
-**[Show me a working demo](https://www.kickstartds.com/storybook/?path=/story/content-visual--box-light)** (click on the `JSON Schema` addon tab)
+**[Show me a working demo](https://www.kickstartds.com/storybook/?path=/story/base-content-box--image)** (click on the `JSON Schema` addon tab)
 
 ![Teaser image](docs/teaser.png)
 
