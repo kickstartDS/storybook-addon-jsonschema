@@ -1,3 +1,16 @@
+# v1.0.4 (Thu Feb 03 2022)
+
+#### ⚠️ Pushed to `main`
+
+- fix: prevent crash if storybookArgs is undefined ([@lmestel](https://github.com/lmestel))
+- fix: fix panel styling ([@lmestel](https://github.com/lmestel))
+
+#### Authors: 1
+
+- Lukas Mestel ([@lmestel](https://github.com/lmestel))
+
+---
+
 # v1.0.3 (Sun Dec 12 2021)
 
 #### ⚠️ Pushed to `main`
