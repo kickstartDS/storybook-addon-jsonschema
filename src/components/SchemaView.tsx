@@ -10,20 +10,29 @@ import { SchemaEditor } from "./SchemaEditor";
 
 const SchemaContainer = styled.div`
   display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+`;
+
+const SchemaDocContainer = styled.div`
+  flex: 2;
+  overflow: auto;
 `;
 
 const SchemaEditorContainer = styled.div`
-  min-width: 580px;
-  max-width: 580px;
+  flex: 2;
 
   display: none;
   position: relative;
   ${forSize("tablet-landscape-up", "display: block;")}
+  ${forSize("desktop-up", "flex: 3;")}
 
   section {
-    position: fixed !important;
-    padding: 0;
-    margin: 0;
+    overflow: hidden;
+    max-height: 100%;
   }
 `;
 
@@ -38,7 +47,9 @@ export const SchemaView: React.FC = () => {
 
   return (
     <SchemaContainer>
-      <SchemaDoc schema={schema} />
+      <SchemaDocContainer>
+        <SchemaDoc schema={schema} />
+      </SchemaDocContainer>
       <SchemaEditorContainer>
         <SchemaEditor schema={schema} />
         <SchemaEditorContainerHeading>
