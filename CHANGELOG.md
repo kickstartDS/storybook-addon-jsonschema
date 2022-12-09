@@ -1,3 +1,16 @@
+# v1.0.6 (Fri Dec 09 2022)
+
+#### ⚠️ Pushed to `main`
+
+- Merge branch 'main' of github.com:kickstartDS/storybook-addon-jsonschema ([@julrich](https://github.com/julrich))
+- fix: addon transpilation ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.0.5 (Thu Feb 03 2022)
 
 #### ⚠️ Pushed to `main`
