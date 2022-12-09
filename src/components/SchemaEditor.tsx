@@ -6,7 +6,7 @@ import Editor, {
   OnChange,
 } from "@monaco-editor/react";
 import { JsonSchema } from "@kickstartds/json-schema-viewer";
-import { pack, unpack } from "@kickstartds/core/lib/storybook/helpers";
+import { pack, unpack } from "../helpers.js";
 import { useArgs } from "@storybook/api";
 import decomment from "decomment";
 
