@@ -25,7 +25,7 @@ const editorPreamble = `
 export const SchemaEditor: React.FC<SchemaEditorProps> = ({ schema }) => {
   const editorRef = useRef(null);
   const monaco = useMonaco();
-  const [storybookArgs, updateArgs] = useArgs();
+  const [storybookArgs = {}, updateArgs] = useArgs();
 
   const initialContent = useMemo(() => unpack(storybookArgs), [schema]);
 
