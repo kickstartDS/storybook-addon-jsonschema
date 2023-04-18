@@ -1,5 +1,5 @@
 import React from "react";
-import { useParameter } from "@storybook/api";
+import { useParameter } from "@storybook/manager-api";
 import styled from "styled-components";
 
 import { forSize, JsonSchema } from "@kickstartds/json-schema-viewer";

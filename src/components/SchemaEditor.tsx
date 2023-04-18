@@ -7,7 +7,7 @@ import Editor, {
 } from "@monaco-editor/react";
 import { JsonSchema } from "@kickstartds/json-schema-viewer";
 import { pack, unpack } from "../helpers.js";
-import { useArgs } from "@storybook/api";
+import { useArgs } from "@storybook/manager-api";
 import decomment from "decomment";
 
 type OnChangeParams = Parameters<OnChange>;
