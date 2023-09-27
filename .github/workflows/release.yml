@@ -7,22 +7,19 @@ jobs:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - name: Prepare repository
-        run: git fetch --unshallow --tags
-
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v1
+      - name: Use Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 14.x
+          node-version: "18.12"
+          cache: "yarn"
 
       - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+        run: yarn
 
       - name: Create Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          yarn release
+        run: yarn release
