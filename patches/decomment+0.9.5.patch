@@ -1,0 +1,26 @@
+diff --git a/node_modules/decomment/lib/utils.js b/node_modules/decomment/lib/utils.js
+index bca12da..b9daf81 100644
+--- a/node_modules/decomment/lib/utils.js
++++ b/node_modules/decomment/lib/utils.js
+@@ -1,7 +1,7 @@
+ 'use strict';
+ 
+ const esprima = require('esprima');
+-const os = require('os');
++// const os = require('os');
+ 
+ ////////////////////////////////////////////////////
+ // Automatically calculates and returns End of Line,
+@@ -20,9 +20,9 @@ function getEOL(text) {
+         }
+         idx++;
+     }
+-    if (unix === windows) {
+-        return os.EOL;
+-    }
++    // if (unix === windows) {
++    //     return os.EOL;
++    // }
+     return unix > windows ? '\n' : '\r\n';
+ }
+ 
