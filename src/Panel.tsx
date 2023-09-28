@@ -9,6 +9,9 @@ interface PanelProps {
 }
 
 const PanelContainer = styled.div`
+  position: absolute;
+  inset: 0;
+
   > div {
     height: 100%;
   }
