@@ -10,22 +10,20 @@ interface PanelProps {
 
 const PanelContainer = styled.div`
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
+  inset: 0;
 
   > div {
     height: 100%;
   }
 `;
 
-export const Panel: React.FC<PanelProps> = (props) => (
-  <PanelContainer hidden={!props.active}>
-    <AddonPanel {...props}>
-      <MemoryRouter initialEntries={["/base"]}>
-        <SchemaView />
-      </MemoryRouter>
-    </AddonPanel>
-  </PanelContainer>
-);
+export const Panel: React.FC<PanelProps> = (props) =>
+  props.active ? (
+    <PanelContainer>
+      <AddonPanel {...props}>
+        <MemoryRouter initialEntries={["/base"]}>
+          <SchemaView />
+        </MemoryRouter>
+      </AddonPanel>
+    </PanelContainer>
+  ) : null;

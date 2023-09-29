@@ -6,8 +6,8 @@ import Editor, {
   OnChange,
 } from "@monaco-editor/react";
 import { JsonSchema } from "@kickstartds/json-schema-viewer";
-import { pack, unpack } from "../helpers.js";
-import { useArgs } from "@storybook/api";
+import { pack, unpack } from "@kickstartds/core/lib/storybook";
+import { useArgs } from "@storybook/manager-api";
 import decomment from "decomment";
 
 type OnChangeParams = Parameters<OnChange>;
@@ -61,7 +61,6 @@ export const SchemaEditor: React.FC<SchemaEditorProps> = ({ schema }) => {
 
   return (
     <Editor
-      height="97vh"
       defaultLanguage="json"
       value={editorPreamble + "\n" + JSON.stringify(initialContent, null, 2)}
       path="a://b/example.json"

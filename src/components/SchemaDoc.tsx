@@ -107,6 +107,8 @@ export const SchemaDoc: React.FC<SchemaDocProps> = ({ schema }) => {
     lookup,
     schema: currentSchema,
     stage: "both",
+    onSelectValidationRange(range) {},
+    validationResults: [],
   };
 
   return <SchemaExplorer {...explorerArgs} />;
