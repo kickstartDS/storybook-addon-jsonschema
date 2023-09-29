@@ -13,38 +13,35 @@
     "type": "git",
     "url": "https://github.com/kickstartDS/storybook-addon-jsonschema"
   },
-  "author": "Jonas Ulrich | ruhmesmeile GmbH",
   "license": "MIT",
+  "author": "Jonas Ulrich | ruhmesmeile GmbH",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/ts/index.d.ts",
   "files": [
-    "dist", "manager.js"
+    "dist",
+    "manager.js"
   ],
   "scripts": {
-    "clean": "rimraf ./dist",
+    "prebuild": "yarn clean",
+    "build": "yarn buildJs && yarn buildTsc",
+    "build-storybook": "storybook build",
     "buildJs": "node bundle.js",
     "buildTsc": "tsc --declaration --emitDeclarationOnly --outDir ./dist/ts",
-    "prebuild": "yarn clean",
+    "clean": "rimraf ./dist",
     "prepare": "patch-package",
-    "build": "yarn buildJs && yarn buildTsc",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "storybook dev -p 6007",
+    "release": "yarn build && auto shipit",
     "start": "yarn build && yarn storybook",
-    "build-storybook": "storybook build",
-    "release": "yarn build && auto shipit"
+    "storybook": "storybook dev -p 6007",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "@kickstartds/json-schema-viewer": "2.0.0-0",
-    "@monaco-editor/react": "^4.5.1",
-    "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0",
-    "styled-components": "^3.2.6"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@kickstartds/base": "^2.2.0",
     "@kickstartds/content": "^2.1.0",
     "@kickstartds/core": "^2.2.0",
+    "@kickstartds/json-schema-viewer": "2.0.0-0",
+    "@monaco-editor/react": "^4.5.1",
     "@storybook/addon-essentials": "^7.4.0",
     "@storybook/builder-vite": "^7.4.0",
     "@storybook/components": "^7.4.0",
@@ -65,8 +62,11 @@
     "prettier": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "rimraf": "^5.0.5",
     "storybook": "^7.4.0",
+    "styled-components": "^3.2.6",
     "typescript": "^5.2.2",
     "vite": "^4.4.9"
   },
