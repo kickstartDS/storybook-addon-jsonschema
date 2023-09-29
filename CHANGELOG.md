@@ -1,3 +1,25 @@
+# v2.0.0 (Fri Sep 29 2023)
+
+#### 💥 Breaking Change
+
+- Upgrade addon to Storybook 7 [#21](https://github.com/kickstartDS/storybook-addon-jsonschema/pull/21) ([@julrich](https://github.com/julrich) [@lmestel](https://github.com/lmestel))
+
+#### 🐛 Bug Fix
+
+- fix: addon transpilation ([@julrich](https://github.com/julrich))
+
+#### ⚠️ Pushed to `main`
+
+- build: fetch complete git history in github action ([@lmestel](https://github.com/lmestel))
+- Merge branch 'main' of github.com:kickstartDS/storybook-addon-jsonschema ([@julrich](https://github.com/julrich))
+
+#### Authors: 2
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+- Lukas Mestel ([@lmestel](https://github.com/lmestel))
+
+---
+
 # v1.0.6 (Fri Dec 09 2022)
 
 #### ⚠️ Pushed to `main`
