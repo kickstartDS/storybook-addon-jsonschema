@@ -6,6 +6,7 @@ const sharedConfig = {
   entryPoints: ["src/index.ts", "src/manager.ts"],
   bundle: true,
   platform: "browser",
+  minify: true,
   plugins: [
     nodeExternalsPlugin({
       dependencies: true,

@@ -2056,10 +2056,10 @@
     pubsub-js "^1.9.4"
     sass "^1.62.1"
 
-"@kickstartds/json-schema-viewer@2.0.0-0":
-  version "2.0.0-0"
-  resolved "https://registry.yarnpkg.com/@kickstartds/json-schema-viewer/-/json-schema-viewer-2.0.0-0.tgz#175c756cbe9720c6996861543f43f34156f33cdc"
-  integrity sha512-9Br0gyKIErhotn1wTuQqK7wqqt+052OKf+evf5g8TRFCoTZtsPgUkIXoy0sv4ZCNDNppXkeDa8Eo96cgf8AM1w==
+"@kickstartds/json-schema-viewer@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@kickstartds/json-schema-viewer/-/json-schema-viewer-2.0.0.tgz#0b58a3ddcb53a8efb7df5f5203120b9ccf06d062"
+  integrity sha512-6lf7Ezp5byL6BIit/2CWWVoiJany2PDqoR9inR7CK8dQw+z3j9z5nKF0Ac8rTjiFofIWqlch2Z6rD9Bx5Vn1Qg==
 
 "@mdx-js/react@^2.1.5":
   version "2.3.0"
