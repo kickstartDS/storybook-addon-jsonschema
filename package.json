@@ -1,6 +1,6 @@
 {
   "name": "@kickstartds/storybook-addon-jsonschema",
-  "version": "1.0.6",
+  "version": "2.0.0",
   "description": "Show JSON Schema files associated with components, integrated with Story Controls",
   "keywords": [
     "storybook-addons",
