@@ -35,7 +35,7 @@
     "release": "yarn build && auto shipit"
   },
   "dependencies": {
-    "@kickstartds/json-schema-viewer": "^1.2.0-0",
+    "@kickstartds/json-schema-viewer": "2.0.0-0",
     "@monaco-editor/react": "^4.5.1",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",

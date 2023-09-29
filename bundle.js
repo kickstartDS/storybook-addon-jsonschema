@@ -6,8 +6,6 @@ const sharedConfig = {
   entryPoints: ["src/index.ts", "src/manager.ts"],
   bundle: true,
   platform: "browser",
-  format: "esm",
-  outdir: "dist/esm",
   plugins: [
     nodeExternalsPlugin({
       dependencies: true,
