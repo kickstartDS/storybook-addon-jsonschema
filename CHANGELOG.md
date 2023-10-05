@@ -1,3 +1,15 @@
+# v2.0.1 (Thu Oct 05 2023)
+
+#### ⚠️ Pushed to `main`
+
+- build: exclude @kickstartds/core from bundle ([@lmestel](https://github.com/lmestel))
+
+#### Authors: 1
+
+- Lukas Mestel ([@lmestel](https://github.com/lmestel))
+
+---
+
 # v2.0.0 (Fri Sep 29 2023)
 
 #### 💥 Breaking Change
