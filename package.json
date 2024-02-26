@@ -37,23 +37,19 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@kickstartds/base": "^2.2.0",
-    "@kickstartds/content": "^2.1.0",
-    "@kickstartds/core": "^2.2.0",
+    "@kickstartds/core": "^2.2.2",
     "@kickstartds/json-schema-viewer": "^2.0.0",
     "@monaco-editor/react": "^4.5.1",
-    "@storybook/addon-essentials": "^7.4.0",
-    "@storybook/builder-vite": "^7.4.0",
-    "@storybook/components": "^7.4.0",
-    "@storybook/manager-api": "^7.4.0",
-    "@storybook/react": "^7.4.0",
-    "@storybook/react-vite": "^7.4.0",
+    "@storybook/addon-essentials": "^7.6.17",
+    "@storybook/components": "^7.6.17",
+    "@storybook/manager-api": "^7.6.17",
+    "@storybook/react": "^7.6.17",
+    "@storybook/react-vite": "^7.6.17",
     "@types/decomment": "^0.9.3",
     "@types/json-schema": "^7.0.13",
     "@types/react-dom": "^18.2.8",
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^3.0.6",
-    "@vitejs/plugin-react": "^4.1.0",
     "auto": "^11.0.5",
     "decomment": "^0.9.5",
     "esbuild": "^0.19.3",
@@ -66,10 +62,10 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "rimraf": "^5.0.5",
-    "storybook": "^7.4.0",
+    "storybook": "^7.6.17",
     "styled-components": "^3.2.6",
     "typescript": "^5.2.2",
-    "vite": "^4.4.9"
+    "vite": "^5.1.4"
   },
   "peerDependencies": {
     "@kickstartds/core": "^2.2.0",
@@ -83,6 +79,9 @@
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.2.0"
   },
   "peerDependenciesMeta": {
+    "@kickstartds/core": {
+      "optional": true
+    },
     "react": {
       "optional": true
     },

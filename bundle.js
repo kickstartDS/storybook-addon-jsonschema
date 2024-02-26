@@ -3,7 +3,7 @@ const { nodeExternalsPlugin } = require("esbuild-node-externals");
 
 /** @type import("esbuild").BuildOptions */
 const sharedConfig = {
-  entryPoints: ["src/index.ts", "src/manager.ts"],
+  entryPoints: ["src/index.ts", "src/manager.tsx"],
   bundle: true,
   platform: "browser",
   minify: true,

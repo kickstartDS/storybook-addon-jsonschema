@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "button.schema.json",
+  "title": "Button",
+  "type": "object",
+  "properties": {
+    "label": {
+      "title": "Label",
+      "description": "Button contents",
+      "type": "string"
+    },
+    "size": {
+      "title": "Size",
+      "description": "How large should the button be?",
+      "type": "string",
+      "enum": ["small", "medium", "large"],
+      "default": "medium"
+    },
+    "primary": {
+      "title": "Primary",
+      "description": "Is this the principal call to action on the page?",
+      "type": "boolean",
+      "default": false
+    },
+    "backgroundColor": {
+      "title": "Background color",
+      "description": "What background color to use",
+      "type": "string"
+    }
+  },
+  "required": ["label"]
+}
