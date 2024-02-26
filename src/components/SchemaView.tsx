@@ -15,17 +15,20 @@ const SchemaContainer = styled.div`
 `;
 
 const SchemaDocContainer = styled.div`
-  flex: 2;
+  flex: 1;
   overflow: auto;
+  background: #fff;
+  color: #172b4d;
+  ${forSize("tablet-landscape-up", "max-width: max(500px, 30%);")}
 `;
 
 const SchemaEditorContainer = styled.div`
-  flex: 2;
+  flex: 1;
 
   display: none;
   position: relative;
+  overflow: hidden;
   ${forSize("tablet-landscape-up", "display: block;")}
-  ${forSize("desktop-up", "flex: 3;")}
 
   section {
     overflow: hidden;
