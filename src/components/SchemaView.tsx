@@ -45,10 +45,10 @@ const SchemaEditorContainerHeading = styled.h3`
 export const SchemaView: React.FC = () => {
   const { schema, fromArgs, toArgs } = useParameter<JsonSchemaParameter>(
     PARAM_KEY,
-    { schema: {} }
+    { schema: {} },
   );
   const [validationResults, setValidationResults] = useState<editor.IMarker[]>(
-    []
+    [],
   );
   const [selectedValidation, setSelectedValidation] = useState<IRange>();
   return (

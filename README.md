@@ -21,10 +21,11 @@ It was slightly modified to generate bundles that can be imported for partial us
 
 ## What it's for
 
-Three things you can use this addon for:  
-1. Explore associated JSON Schema documentation, in a nicely organized fashion in the `JSON Schema Explorer`  
-2. Configure components through Controls, copy the resulting JSON as a starting point or template for API-usage / data generation purposes in the `JSON Code Editor`  
-3. Paste JSON to validate data or preview component state in the `JSON Code Editor`  
+Three things you can use this addon for:
+
+1. Explore associated JSON Schema documentation, in a nicely organized fashion in the `JSON Schema Explorer`
+2. Configure components through Controls, copy the resulting JSON as a starting point or template for API-usage / data generation purposes in the `JSON Code Editor`
+3. Paste JSON to validate data or preview component state in the `JSON Code Editor`
 
 ## Getting started
 
@@ -40,7 +41,7 @@ Second step, register the addon inside your `.storybook/main.js` (just add it to
 
 ```javascript
 module.exports = {
-  addons: ['@kickstartds/storybook-addon-jsonschema']
+  addons: ["@kickstartds/storybook-addon-jsonschema"],
 };
 ```
 
@@ -53,21 +54,21 @@ export default {
   parameters: {
     jsonschema: {
       schema: {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "$id": "https://my-components/button.schema.json",
-        "type": "object",
-        "properties": {
-          "primary": {
-            "type": "boolean",
-            "default": false,
+        $schema: "http://json-schema.org/draft-07/schema#",
+        $id: "https://my-components/button.schema.json",
+        type: "object",
+        properties: {
+          primary: {
+            type: "boolean",
+            default: false,
           },
-          "label": {
-            "type": "string"
-          }
-        }
-      }
-    }
-  }
+          label: {
+            type: "string",
+          },
+        },
+      },
+    },
+  },
 };
 ```
 
