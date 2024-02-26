@@ -1,19 +1,15 @@
 import React, { useEffect, useRef, useMemo } from "react";
-import Editor, {
-  useMonaco,
-  OnMount,
-  OnValidate,
-  OnChange,
-} from "@monaco-editor/react";
+import type { IRange, editor } from "monaco-editor";
+import Editor, { useMonaco, OnMount, OnValidate } from "@monaco-editor/react";
 import { JsonSchema } from "@kickstartds/json-schema-viewer";
 import { pack, unpack } from "@kickstartds/core/lib/storybook";
 import { useArgs } from "@storybook/manager-api";
 import decomment from "decomment";
 
-type OnChangeParams = Parameters<OnChange>;
-
 type SchemaEditorProps = {
   schema: JsonSchema;
+  setValidationResults: (marker: editor.IMarker[]) => void;
+  selectedValidationRange?: IRange;
 };
 
 const editorPreamble = `
@@ -22,8 +18,12 @@ const editorPreamble = `
 // benefit of validation and autocompletion!
 `.trim();
 
-export const SchemaEditor: React.FC<SchemaEditorProps> = ({ schema }) => {
-  const editorRef = useRef(null);
+export const SchemaEditor: React.FC<SchemaEditorProps> = ({
+  schema,
+  setValidationResults,
+  selectedValidationRange,
+}) => {
+  const editorRef = useRef<editor.IStandaloneCodeEditor>(null);
   const monaco = useMonaco();
   const [storybookArgs = {}, updateArgs] = useArgs();
 
@@ -33,14 +33,15 @@ export const SchemaEditor: React.FC<SchemaEditorProps> = ({ schema }) => {
     editorRef.current = editor;
   };
 
-  const handleChange = (value: OnChangeParams[0]) => {
+  const handleChange = (value: string) => {
     try {
       updateArgs(pack(JSON.parse(decomment(value))));
     } catch (e) {}
   };
 
   const handleEditorValidChange: OnValidate = (markers) => {
-    if (markers.length === 0 && editorRef && editorRef.current) {
+    setValidationResults(markers);
+    if (markers.length === 0 && editorRef.current) {
       handleChange(editorRef.current.getValue());
     }
   };
@@ -58,6 +59,13 @@ export const SchemaEditor: React.FC<SchemaEditorProps> = ({ schema }) => {
       ],
     });
   }, [monaco, schema]);
+
+  useEffect(() => {
+    if (editorRef.current && selectedValidationRange) {
+      editorRef.current.setSelection(selectedValidationRange);
+      editorRef.current.revealRangeAtTop(selectedValidationRange);
+    }
+  }, [selectedValidationRange]);
 
   return (
     <Editor

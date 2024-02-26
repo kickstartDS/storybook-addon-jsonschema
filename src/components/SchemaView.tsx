@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParameter } from "@storybook/manager-api";
 import styled from "styled-components";
+import type { editor, IRange } from "monaco-editor";
 
 import { forSize, JsonSchema } from "@kickstartds/json-schema-viewer";
 
@@ -14,17 +15,20 @@ const SchemaContainer = styled.div`
 `;
 
 const SchemaDocContainer = styled.div`
-  flex: 2;
+  flex: 1;
   overflow: auto;
+  background: #fff;
+  color: #172b4d;
+  ${forSize("tablet-landscape-up", "max-width: max(500px, 30%);")}
 `;
 
 const SchemaEditorContainer = styled.div`
-  flex: 2;
+  flex: 1;
 
   display: none;
   position: relative;
+  overflow: hidden;
   ${forSize("tablet-landscape-up", "display: block;")}
-  ${forSize("desktop-up", "flex: 3;")}
 
   section {
     overflow: hidden;
@@ -40,14 +44,26 @@ const SchemaEditorContainerHeading = styled.h3`
 
 export const SchemaView: React.FC = () => {
   const schema = useParameter<JsonSchema>(PARAM_KEY, {});
+  const [validationResults, setValidationResults] = useState<editor.IMarker[]>(
+    []
+  );
+  const [selectedValidation, setSelectedValidation] = useState<IRange>();
 
   return (
     <SchemaContainer>
       <SchemaDocContainer>
-        <SchemaDoc schema={schema} />
+        <SchemaDoc
+          schema={schema}
+          validationResults={validationResults}
+          onSelectValidationRange={setSelectedValidation}
+        />
       </SchemaDocContainer>
       <SchemaEditorContainer>
-        <SchemaEditor schema={schema} />
+        <SchemaEditor
+          schema={schema}
+          setValidationResults={setValidationResults}
+          selectedValidationRange={selectedValidation}
+        />
         <SchemaEditorContainerHeading>
           Editor and Validator
         </SchemaEditorContainerHeading>
