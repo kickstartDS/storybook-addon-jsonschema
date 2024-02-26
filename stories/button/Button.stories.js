@@ -6,7 +6,7 @@ export default {
   component: Button,
   parameters: {
     layout: "centered",
-    jsonschema: schema,
+    jsonschema: { schema },
   },
   args: {
     label: "Button",

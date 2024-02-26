@@ -52,16 +52,18 @@ export default {
   component: Button,
   parameters: {
     jsonschema: {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "$id": "https://my-components/button.schema.json",
-      "type": "object",
-      "properties": {
-        "primary": {
-          "type": "boolean",
-          "default": false,
-        },
-        "label": {
-          "type": "string"
+      schema: {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "$id": "https://my-components/button.schema.json",
+        "type": "object",
+        "properties": {
+          "primary": {
+            "type": "boolean",
+            "default": false,
+          },
+          "label": {
+            "type": "string"
+          }
         }
       }
     }

@@ -38,7 +38,7 @@
   "dependencies": {},
   "devDependencies": {
     "@kickstartds/core": "^2.2.2",
-    "@kickstartds/json-schema-viewer": "^2.0.0",
+    "@kickstartds/json-schema-viewer": "^2.0.1",
     "@monaco-editor/react": "^4.5.1",
     "@storybook/addon-essentials": "^7.6.17",
     "@storybook/components": "^7.6.17",

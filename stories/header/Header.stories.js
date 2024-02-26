@@ -1,5 +1,6 @@
 import {
   pack,
+  unpack,
   unpackDecorator,
   getArgsShared,
 } from "@kickstartds/core/lib/storybook";
@@ -15,7 +16,7 @@ export default {
   argTypes,
   parameters: {
     layout: "fullscreen",
-    jsonschema: schema,
+    jsonschema: { schema, toArgs: pack, fromArgs: unpack },
   },
   decorators: [unpackDecorator],
 };

@@ -1,15 +1,19 @@
 import React, { useEffect, useRef, useMemo } from "react";
 import type { IRange, editor } from "monaco-editor";
+import type { Args } from "@storybook/types";
 import Editor, { useMonaco, OnMount, OnValidate } from "@monaco-editor/react";
 import { JsonSchema } from "@kickstartds/json-schema-viewer";
-import { pack, unpack } from "@kickstartds/core/lib/storybook";
 import { useArgs } from "@storybook/manager-api";
 import decomment from "decomment";
+
+const identity: <T>(v: T) => T = (v) => v;
 
 type SchemaEditorProps = {
   schema: JsonSchema;
   setValidationResults: (marker: editor.IMarker[]) => void;
   selectedValidationRange?: IRange;
+  fromArgs?: (args: Args) => Record<string, any>;
+  toArgs?: (obj: Record<string, any>) => Args;
 };
 
 const editorPreamble = `
@@ -22,12 +26,14 @@ export const SchemaEditor: React.FC<SchemaEditorProps> = ({
   schema,
   setValidationResults,
   selectedValidationRange,
+  fromArgs = identity,
+  toArgs = identity,
 }) => {
   const editorRef = useRef<editor.IStandaloneCodeEditor>(null);
   const monaco = useMonaco();
   const [storybookArgs = {}, updateArgs] = useArgs();
 
-  const initialContent = useMemo(() => unpack(storybookArgs), [schema]);
+  const initialContent = useMemo(() => fromArgs(storybookArgs), [schema]);
 
   const handleEditorDidMount: OnMount = (editor, monaco) => {
     editorRef.current = editor;
@@ -35,7 +41,7 @@ export const SchemaEditor: React.FC<SchemaEditorProps> = ({
 
   const handleChange = (value: string) => {
     try {
-      updateArgs(pack(JSON.parse(decomment(value))));
+      updateArgs(toArgs(JSON.parse(decomment(value))));
     } catch (e) {}
   };
 
