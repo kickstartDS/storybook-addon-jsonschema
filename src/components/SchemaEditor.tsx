@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useMemo } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import type { IRange, editor } from "monaco-editor";
 import type { Args } from "@storybook/types";
 import Editor, { useMonaco, OnMount, OnValidate } from "@monaco-editor/react";
@@ -12,8 +12,8 @@ type SchemaEditorProps = {
   schema: JsonSchema;
   setValidationResults: (marker: editor.IMarker[]) => void;
   selectedValidationRange?: IRange;
-  fromArgs?: (args: Args) => Record<string, any>;
-  toArgs?: (obj: Record<string, any>) => Args;
+  fromArgs?: (args: Args) => Record<string, any> | Promise<Record<string, any>>;
+  toArgs?: (obj: Record<string, any>) => Args | Promise<Args>;
 };
 
 const editorPreamble = `
@@ -32,16 +32,15 @@ export const SchemaEditor: React.FC<SchemaEditorProps> = ({
   const editorRef = useRef<editor.IStandaloneCodeEditor>(null);
   const monaco = useMonaco();
   const [storybookArgs = {}, updateArgs] = useArgs();
-
-  const initialContent = useMemo(() => fromArgs(storybookArgs), [schema]);
+  const [initialContent, setInitialContent] = useState<Record<string, any>>({});
 
   const handleEditorDidMount: OnMount = (editor, monaco) => {
     editorRef.current = editor;
   };
 
-  const handleChange = (value: string) => {
+  const handleChange = async (value: string) => {
     try {
-      updateArgs(toArgs(JSON.parse(decomment(value))));
+      updateArgs(await toArgs(JSON.parse(decomment(value))));
     } catch (e) {}
   };
 
@@ -51,6 +50,12 @@ export const SchemaEditor: React.FC<SchemaEditorProps> = ({
       handleChange(editorRef.current.getValue());
     }
   };
+
+  useEffect(() => {
+    const update = async (args: Args) =>
+      setInitialContent(await fromArgs(args));
+    update(storybookArgs).catch(console.error);
+  }, [schema]);
 
   useEffect(() => {
     monaco?.languages.json.jsonDefaults.setDiagnosticsOptions({
