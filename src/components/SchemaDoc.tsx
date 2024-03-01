@@ -91,7 +91,7 @@ export const SchemaDoc: React.FC<SchemaDocProps> = ({
   const currentPathElement = path[path.length - 1];
   const currentSchema = getSchemaFromReference(
     currentPathElement.reference,
-    lookup
+    lookup,
   );
 
   if (currentSchema === undefined) {
