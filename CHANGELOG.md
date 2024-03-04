@@ -1,3 +1,22 @@
+# v3.0.0 (Mon Mar 04 2024)
+
+#### 💥 Breaking Change
+
+- Transform parameter [#24](https://github.com/kickstartDS/storybook-addon-jsonschema/pull/24) ([@lmestel](https://github.com/lmestel))
+
+#### 🚀 Enhancement
+
+- Connect validation tab with editor [#23](https://github.com/kickstartDS/storybook-addon-jsonschema/pull/23) ([@lmestel](https://github.com/lmestel))
+
+#### 🐛 Bug Fix
+
+
+#### Authors: 1
+
+- Lukas Mestel ([@lmestel](https://github.com/lmestel))
+
+---
+
 # v2.0.1 (Thu Oct 05 2023)
 
 #### ⚠️ Pushed to `main`
