@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import type { editor, IRange } from "monaco-editor";
 
 import {
   SchemaExplorer,
@@ -32,9 +33,15 @@ const removeLeadingSlash = (v: string): string => {
 
 type SchemaDocProps = {
   schema: JsonSchema;
+  validationResults: editor.IMarker[];
+  onSelectValidationRange: (range: IRange) => void;
 };
 
-export const SchemaDoc: React.FC<SchemaDocProps> = ({ schema }) => {
+export const SchemaDoc: React.FC<SchemaDocProps> = ({
+  schema,
+  validationResults,
+  onSelectValidationRange,
+}) => {
   const lookup = new InternalLookup(schema);
 
   const getPathFromRoute = (lookup: Lookup): Array<PathElement> => {
@@ -84,7 +91,7 @@ export const SchemaDoc: React.FC<SchemaDocProps> = ({ schema }) => {
   const currentPathElement = path[path.length - 1];
   const currentSchema = getSchemaFromReference(
     currentPathElement.reference,
-    lookup
+    lookup,
   );
 
   if (currentSchema === undefined) {
@@ -107,8 +114,8 @@ export const SchemaDoc: React.FC<SchemaDocProps> = ({ schema }) => {
     lookup,
     schema: currentSchema,
     stage: "both",
-    onSelectValidationRange(range) {},
-    validationResults: [],
+    onSelectValidationRange,
+    validationResults,
   };
 
   return <SchemaExplorer {...explorerArgs} />;
