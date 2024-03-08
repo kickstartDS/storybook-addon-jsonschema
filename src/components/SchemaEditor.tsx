@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import type { IRange, editor } from "monaco-editor";
 import type { Args } from "@storybook/types";
 import Editor, { useMonaco, OnMount, OnValidate } from "@monaco-editor/react";
@@ -6,14 +6,11 @@ import { JsonSchema } from "@kickstartds/json-schema-viewer";
 import { useArgs } from "@storybook/manager-api";
 import decomment from "decomment";
 
-const identity: <T>(v: T) => T = (v) => v;
-
 type SchemaEditorProps = {
   schema: JsonSchema;
   setValidationResults: (marker: editor.IMarker[]) => void;
   selectedValidationRange?: IRange;
-  fromArgs?: (args: Args) => Record<string, any> | Promise<Record<string, any>>;
-  toArgs?: (obj: Record<string, any>) => Args | Promise<Args>;
+  packArgs?: boolean;
 };
 
 const editorPreamble = `
@@ -26,8 +23,7 @@ export const SchemaEditor: React.FC<SchemaEditorProps> = ({
   schema,
   setValidationResults,
   selectedValidationRange,
-  fromArgs = identity,
-  toArgs = identity,
+  packArgs,
 }) => {
   const editorRef = useRef<editor.IStandaloneCodeEditor>(null);
   const monaco = useMonaco();
@@ -40,7 +36,11 @@ export const SchemaEditor: React.FC<SchemaEditorProps> = ({
 
   const handleChange = async (value: string) => {
     try {
-      updateArgs(await toArgs(JSON.parse(decomment(value))));
+      const parsed = JSON.parse(decomment(value));
+      const args = packArgs
+        ? (await import("@kickstartds/core/lib/storybook")).pack(parsed)
+        : parsed;
+      updateArgs(args);
     } catch (e) {}
   };
 
@@ -52,10 +52,14 @@ export const SchemaEditor: React.FC<SchemaEditorProps> = ({
   };
 
   useEffect(() => {
-    const update = async (args: Args) =>
-      setInitialContent(await fromArgs(args));
+    const update = async (args: Args) => {
+      const transformedArgs = packArgs
+        ? (await import("@kickstartds/core/lib/storybook")).unpack(args)
+        : args;
+      return setInitialContent(transformedArgs);
+    };
     update(storybookArgs).catch(console.error);
-  }, [schema]);
+  }, [packArgs, schema]);
 
   useEffect(() => {
     monaco?.languages.json.jsonDefaults.setDiagnosticsOptions({

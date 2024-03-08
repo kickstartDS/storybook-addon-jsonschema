@@ -37,7 +37,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@kickstartds/core": "^2.2.2",
+    "@kickstartds/core": "^4.0.0",
     "@kickstartds/json-schema-viewer": "^2.0.1",
     "@monaco-editor/react": "^4.5.1",
     "@storybook/addon-essentials": "^7.6.17",
@@ -68,7 +68,7 @@
     "vite": "^5.1.4"
   },
   "peerDependencies": {
-    "@kickstartds/core": "^2.2.0",
+    "@kickstartds/core": "^2.2.0 || ^4.0.0",
     "@storybook/api": "^7.0.0",
     "@storybook/components": "^7.0.0",
     "@storybook/core-events": "^7.0.0",
