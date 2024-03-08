@@ -1,3 +1,15 @@
+# v3.1.0 (Fri Mar 08 2024)
+
+#### 🚀 Enhancement
+
+- Add optional `packArgs` parameter [#26](https://github.com/kickstartDS/storybook-addon-jsonschema/pull/26) ([@lmestel](https://github.com/lmestel))
+
+#### Authors: 1
+
+- Lukas Mestel ([@lmestel](https://github.com/lmestel))
+
+---
+
 # v3.0.0 (Mon Mar 04 2024)
 
 #### 💥 Breaking Change
