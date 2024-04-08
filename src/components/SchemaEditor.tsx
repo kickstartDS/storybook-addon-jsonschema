@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import type { IRange, editor } from "monaco-editor";
 import type { Args } from "@storybook/types";
 import Editor, { useMonaco, OnMount, OnValidate } from "@monaco-editor/react";
