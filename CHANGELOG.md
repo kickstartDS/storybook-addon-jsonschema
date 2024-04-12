@@ -1,3 +1,15 @@
+# v4.0.0 (Fri Apr 12 2024)
+
+#### 💥 Breaking Change
+
+- Storybook 8 [#27](https://github.com/kickstartDS/storybook-addon-jsonschema/pull/27) ([@lmestel](https://github.com/lmestel))
+
+#### Authors: 1
+
+- Lukas Mestel ([@lmestel](https://github.com/lmestel))
+
+---
+
 # v3.1.0 (Fri Mar 08 2024)
 
 #### 🚀 Enhancement
