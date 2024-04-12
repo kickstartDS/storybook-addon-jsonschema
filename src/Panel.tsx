@@ -1,7 +1,7 @@
 import React from "react";
 import { MemoryRouter } from "react-router-dom";
 import { AddonPanel } from "@storybook/components";
-import styled from "styled-components";
+import { styled } from "@storybook/theming";
 import { SchemaView } from "./components/SchemaView";
 
 interface PanelProps {

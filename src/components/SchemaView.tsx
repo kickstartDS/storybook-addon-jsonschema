@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useParameter } from "@storybook/manager-api";
-import styled from "styled-components";
+import { styled } from "@storybook/theming";
 import type { editor, IRange } from "monaco-editor";
 
 import { forSize } from "@kickstartds/json-schema-viewer";
